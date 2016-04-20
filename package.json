@@ -1,0 +1,44 @@
+{
+  "name": "elixir-coiffure",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser"
+  ],
+  "author": "jbazin",
+  "contributors": [],
+  "dependencies": {
+    "gulp": "~3.9.1",
+    "gulp-load-plugins": "latest",
+    "gulp-rename": "latest",
+    "gulp-csso": "latest",
+    "gulp-sass": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-cssbeautify": "latest",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-sync": "latest",
+    "gulp-clean-css": "~2.0.4",
+    "gulp-uglify": "latest",
+    "gulp-html-extend": "latest",
+    "gulp-concat": "latest",
+    "gulp-imagemin": "latest",
+    "es6-promise": "latest",
+    "del": "latest"
+  },
+  "description": "ERROR: No README data found!",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbazin30/elixir-coiffure.git"
+  },
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/jbazin30/elixir-coiffure/issues"
+  }
+}
