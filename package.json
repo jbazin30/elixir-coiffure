@@ -19,14 +19,15 @@
     "gulp-csscomb": "latest",
     "gulp-cssbeautify": "latest",
     "gulp-autoprefixer": "~3.1.0",
+    "gulp-uncss": "latest",
     "gulp-sync": "latest",
     "gulp-clean-css": "~2.0.4",
     "gulp-uglify": "latest",
     "gulp-html-extend": "latest",
-    "gulp-concat": "latest",
     "gulp-imagemin": "latest",
     "es6-promise": "latest",
-    "del": "latest"
+    "del": "latest",
+    "critical": "latest"
   },
   "description": "ERROR: No README data found!",
   "main": "gulpfile.js",

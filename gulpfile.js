@@ -9,6 +9,7 @@ var gulpsync=   require('gulp-sync')(gulp);
 var extender=   require('gulp-html-extend');
 var Promise=    require('es6-promise').Promise;
 var del=        require('del');
+var critical=   require('critical').stream;
 
 // Include plugins
 var plugins= require('gulp-load-plugins')(); // tous les plugins de package.json
@@ -27,11 +28,38 @@ gulp.task('clean', function() {
 gulp.task('css', function () {
     return gulp.src(source + '/assets/sass/*.scss')
         .pipe(plugins.sass())
+        .pipe(plugins.csscomb())
+        .pipe(plugins.cssbeautify({indent: '  '}))
         .pipe(plugins.autoprefixer())
+        .pipe(plugins.uncss({
+              html: [source + '/{,includes/}*.html'],
+              ignore: [/navPanel/, /drop/]
+            }))
         .pipe(plugins.rename({
             suffix: '.min'
-        }))
+            }))
         .pipe(gulp.dest(prod + '/assets/css'));
+});
+
+// Tâche "minify" = minification CSS (destination -> destination)
+gulp.task('minify', function () {
+  return gulp.src(prod + '/assets/css/*.css')
+    .pipe(plugins.csso())
+    .pipe(gulp.dest(prod + '/assets/css/'));
+});
+
+// Tâche "critical" = critical inline CSS
+gulp.task('critical', function() {
+  return  gulp.src(prod + '/*.html')
+    .pipe(critical({
+      base: prod,
+      inline: true,
+      width: 320,
+      height: 480,
+      minify: true,
+      css: [prod + '/assets/css/main.min.css', prod + '/assets/css/ie8.min.css']
+    }))
+    .pipe(gulp.dest(prod));
 });
 
 // Tâche "fonts" = Copie des fonts en prod
@@ -49,13 +77,13 @@ gulp.task('js', function() {
 
 // Tâche "img" = Images optimisées
 gulp.task('img', function () {
-  return gulp.src(source + '/assets/images/*.{png,jpg,jpeg,gif,svg}')
+  return gulp.src(source + '/images/*.{png,jpg,jpeg,gif,svg}')
     .pipe(plugins.imagemin())
-    .pipe(gulp.dest(prod + '/assets/images'));
+    .pipe(gulp.dest(prod + '/images'));
 });
 
 // Tâche "html" = includes HTML
-gulp.task('html', function() {
+gulp.task('include_html', function() {
     return  gulp.src(source + '/*.html')
         // Generates HTML includes
         .pipe(extender({
@@ -65,5 +93,8 @@ gulp.task('html', function() {
         .pipe(gulp.dest(prod));
 });
 
+gulp.task('assets', gulpsync.sync(['css', 'minify', 'js', 'img', 'fonts']));
+gulp.task('html', gulpsync.sync(['include_html', 'critical']));
+
 // Tâche "prod" = toutes les tâches ensemble
-gulp.task('prod', gulpsync.sync(['clean', 'css', 'js', 'img', 'html', 'fonts']));
+gulp.task('prod', gulpsync.sync(['clean', 'assets', 'html']));
