@@ -17,7 +17,7 @@ var base_uri= './public_html';
 
 // Variables de chemins
 var source= base_uri + '/src'; // dossier de travail
-var prod=   base_uri + '/dist'; // dossier à livrer
+var prod=   base_uri + '/templates'; // dossier à livrer
 
 // Tâche "clean" = supprime la release
 gulp.task('clean', function() {
@@ -94,7 +94,7 @@ gulp.task('include_html', function() {
 });
 
 gulp.task('assets', gulpsync.sync(['css', 'minify', 'js', 'img', 'fonts']));
-gulp.task('html', gulpsync.sync(['include_html', 'critical']));
+gulp.task('html', gulpsync.sync(['include_html']));
 
 // Tâche "prod" = toutes les tâches ensemble
 gulp.task('prod', gulpsync.sync(['clean', 'assets', 'html']));

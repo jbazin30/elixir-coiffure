@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Elixir Coiffure</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.min.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.min.css" /><![endif]-->
+    </head>
+    <body class="homepage">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <div id="header-wrapper">
+                <div id="header">
+
+                    <!-- Logo -->
+                    <h1><a href="index.html">Elixir Coiffure</a></h1>
+
+                    <!-- Nav -->
+                    <!-- @@include includes/nav.html -->
+
+                    <!-- Banner -->
+                    <section id="banner"></section>
+				</div>
+				<!-- Main -->
+				<div id="main-wrapper">
+					<div class="container">
+						<div class="grid">
+							<div class="grid_2">
+								<div>CARTE GOOGLE MAPS</div>
+								<div>
+									<p>
+										Elixir Coiffure<br>
+										32 Avenue de Pézenas<br>
+										34120 - Nézignan L'Evêque<br>
+										Tél. : 04 99 41 14 66<br>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div>
+							<!-- revoir largeur formulaire -->
+							<form name="contact" action="contact.html" method="POST" class="w70 center">
+								<p><label>Nom : </label><input type="text" name="nom" value="" placeholder="Nom" /></p>
+								<p><label>Prénom : </label><input type="text" name="prenom" value="" placeholder="Prénom" /></p>
+								<p><label>E-mail : </label><input type="text" name="email" value="" placeholder="Email" /></p>
+								<p><label>Téléphone : </label><input type="text" name="tel" value="" placeholder="Téléphone" /></p>
+								<p><label>Pièce jointe : </label><input type="file" name="piece_jointe" /></p><!-- permettre l'ajout de X fichiers -->
+								<p><label>Message : </label><textarea name="message" rows="4" cols="20"></textarea></p>
+								<p><input type="submit" value="Envoyer" name="send" /></p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Footer -->
+            <!-- @@include includes/footer.html -->
+		</div>
+		<!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/skel-viewport.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+	</body>
+</html>

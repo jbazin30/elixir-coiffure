@@ -1,7 +1,8 @@
+@charset "UTF-8";
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
-@charset "UTF-8";
+/* @import 'libs/knacss/knacss.scss'; */
 @import url("font-awesome.min.css");
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic");
 
@@ -1508,4 +1509,26 @@
 				}
 			}
 
+	}
+
+	.grid {
+		width: 100%;
+		display: table;
+
+		.grid_2 {
+			display: table-row;
+
+			> div {
+				display: table-cell;
+				width: 50%;
+			}
+		}
+	}
+
+	.w70 {
+		width: 70%;
+	}
+
+	.center {
+		margin: 0 auto;
 	}
