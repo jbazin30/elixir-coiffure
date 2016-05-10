@@ -1,0 +1,1 @@
+!function(o,e,i){function n(){var e=this;e.name="Footable MyPlugin",e.init=function(e){o(e.table).bind({})}}if(e.footable===i||null===e.foobox)throw new Error("Please check and make sure footable.js is included in the page and is loaded prior to this script.");var t={};e.footable.plugins.register(n,t)}(jQuery,window);

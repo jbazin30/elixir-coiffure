@@ -43,7 +43,7 @@ $_result_tpl .= '
                                 <header>
                                     <h2>What\'s this all about?</h2>
                                 </header>
-                                <a href="#" class="image featured"><img src="./templates/images/pic10.jpg" alt="" /></a>
+                                <a href="#" class="image featured"><img src="images/pic10.jpg" alt="" /></a>
                                 <p>
                                     This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
                                     <a href="http://n33.co">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It\'s released for free under
@@ -144,12 +144,7 @@ $_result_tpl .= '
         <script src="./templates/assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="./templates/assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="./templates/assets/js/main.js"></script>
-		<script src="./templates/assets/js/dynamic.to.top.min.js"></script>
-		<script>
-        $(function() {
-            $().UItoTop({scrollSpeed: 1000});
-        });
-    </script>
+
     </body>
 </html>
 ';

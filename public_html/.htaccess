@@ -1,0 +1,14 @@
+# compression gzip/deflate pour les fichiers de type : html, plain, xml, css, javascript
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/x-javascript
+
+<FilesMatch "\\.(js|css|html|htm|php|xml)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteRule ^index\.html$						index.php [L]
+
+RewriteRule ^prestations-et-tarifs\.html$		index.php?p=prices [L]
+RewriteRule ^contact\.html$						index.php?p=contact [L]

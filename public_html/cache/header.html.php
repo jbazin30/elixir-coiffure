@@ -17,25 +17,25 @@ $_result_tpl .= '<!doctype html>
                 <div id="header">
 
                     <!-- Logo -->
-                    <h1><a href="index.html"><span class="t_kunstler t_3_em mrs">Elixir</span> <span class="t_1-2_em t_fw_500">Coiffure</span></a></h1>
+                    <h1><a href="index.html">Elixir Coiffure</a></h1>
 
                     <!-- Nav -->
                     <nav id="nav">
                         <ul>
-                            <li class="current"><a href="index.html">Accueil</a></li>
+                            <li class="current"><a href="index.html">Home</a></li>
                             <li><a href="index.html">Actualité</a></li>
                             <li>
-                                <a href="prestations-et-tarifs.html">Préstations & tarifs</a>
+                                <a href="prestations_tarifs.html">Préstations & tarifs</a>
                                 <ul>
-                                    <li><a href="prestations-et-tarifs.html#coupe">Coupe</a></li>
-                                    <li><a href="prestations-et-tarifs.html#brushing-sechage">Brushing / Séchage</a></li>
-                                    <li><a href="prestations-et-tarifs.html#soin">Soin</a></li>
-                                    <li><a href="prestations-et-tarifs.html#couleur">Couleur</a></li>
-                                    <li><a href="prestations-et-tarifs.html#decoloration">Décoloration</a></li>
-                                    <li><a href="prestations-et-tarifs.html#permanente">Permanente</a></li>
-                                    <li><a href="prestations-et-tarifs.html#lissage-defrisage">Lissage / Défrisage</a></li>
-                                    <li><a href="prestations-et-tarifs.html#extensions">Extensions</a></li>
-                                    <li><a href="prestations-et-tarifs.html#coiffure">Coiffure</a></li>
+                                    <li><a href="#">Coupe</a></li>
+                                    <li><a href="#">Brushing / Séchage</a></li>
+                                    <li><a href="#">Soin</a></li>
+                                    <li><a href="#">Couleur</a></li>
+                                    <li><a href="#">Décoloration</a></li>
+                                    <li><a href="#">Permanente</a></li>
+                                    <li><a href="#">Lissage / Défrisage</a></li>
+                                    <li><a href="#">Extensions</a></li>
+                                    <li><a href="#">Coiffure</a></li>
                                 </ul>
                             </li>
                             <li><a href="left-sidebar.html">Mes produits</a></li>

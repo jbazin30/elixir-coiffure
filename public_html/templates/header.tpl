@@ -1,5 +1,4 @@
-<?php
-$_result_tpl .= '<!doctype html>
+<!doctype html>
 <html>
     <head>
         <title>Elixir Coiffure</title>
@@ -44,5 +43,3 @@ $_result_tpl .= '<!doctype html>
                             <li><a href="contact.html">Contactez-moi</a></li>
                         </ul>
                     </nav>
-';
-?>

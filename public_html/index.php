@@ -11,7 +11,7 @@ header('Content-Type: text/html; charset=UTF-8');
 
 // On défini deux constantes : une contenant le chemin racine du site et l'autre l'extension de fichier : php
 define('ROOT', './');
-define('ROOT_URL', 'http://localhost/coiffure/');
+define('ROOT_URL', 'http://localhost/elixir-coiffure/public_html/');
 define('PHPEXT', substr(strrchr(__FILE__, '.'), 1));
 
 // On défini l'adresse de provenance
@@ -91,6 +91,9 @@ class Frame {
         class_import('pages_' . $page);
         new Frame_child();
     }
+	private function _parse_globals() {
+		$parsed_types= [INPUT_GET, INPUT_POST, INPUT_PUT, INPUT_COOKIE, INPUT_ENV];
+	}
 
 }
 

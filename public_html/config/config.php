@@ -6,7 +6,7 @@
 define('SQL_SERVER', 'localhost'); // adresse/nom du serveur de base de données
 define('SQL_LOGIN', 'root'); // login du serveur
 define('SQL_PASS', ''); // mot de passe du serveur
-define('SQL_DB', 'coiffure'); // base de données
+define('SQL_DB', 'elixir'); // base de données
 define('SQL_PORT', null); // port du serveur de base de données
 define('SQL_TYPE', 'mysql'); // défini le type de serveur utilisé
 
@@ -16,7 +16,7 @@ define('EMAIL_SITE', ''); // Adresse email de réponse utilisé pour les Reply-T
 define('DEVISE', '€');
 
 define('CURRENT_TIME', time()); // timestamp
-define('DATE_CREA', '2015'); // année de création du site
+define('DATE_CREA', '2016'); // année de création du site
 define('DATE_ACT', date('Y')); // année actuelle
 
 define('PHP_EXTENSION_GD', (extension_loaded('gd')) ? TRUE : FALSE); // défini si l'extension GD est chargée sur le serveur

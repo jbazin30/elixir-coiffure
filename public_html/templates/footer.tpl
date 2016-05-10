@@ -1,5 +1,4 @@
-<?php
-$_result_tpl .= '
+
             <!-- Footer -->
             <div id="footer-wrapper">
                 <section id="footer" class="container">
@@ -41,13 +40,13 @@ $_result_tpl .= '
                         <div class="4u 12u(mobile)">
                             <section>
                                 <header>
-                                    <h2>What\'s this all about?</h2>
+                                    <h2>What's this all about?</h2>
                                 </header>
                                 <a href="#" class="image featured"><img src="./templates/images/pic10.jpg" alt="" /></a>
                                 <p>
                                     This is <strong>Dopetrope</strong> a free, fully responsive HTML5 site template by
-                                    <a href="http://n33.co">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It\'s released for free under
-                                    the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don\'t forget to credit us!
+                                    <a href="http://n33.co">AJ</a> for <a href="http://html5up.net/">HTML5 UP</a> It's released for free under
+                                    the <a href="http://html5up.net/license/">Creative Commons Attribution</a> license so feel free to use it for any personal or commercial project &ndash; just don't forget to credit us!
                                 </p>
                                 <footer>
                                     <a href="#" class="button">Find out more</a>
@@ -152,5 +151,3 @@ $_result_tpl .= '
     </script>
     </body>
 </html>
-';
-?>

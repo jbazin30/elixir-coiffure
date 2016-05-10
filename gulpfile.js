@@ -21,7 +21,7 @@ var prod=   base_uri + '/templates'; // dossier à livrer
 
 // Tâche "clean" = supprime la release
 gulp.task('clean', function() {
-  return del.sync(prod);
+  del.sync(prod + '/assets');
 });
 
 // Tâche "css" = SASS + autoprefixer + minify
@@ -31,10 +31,6 @@ gulp.task('css', function () {
         .pipe(plugins.csscomb())
         .pipe(plugins.cssbeautify({indent: '  '}))
         .pipe(plugins.autoprefixer())
-        .pipe(plugins.uncss({
-              html: [source + '/{,includes/}*.html'],
-              ignore: [/navPanel/, /drop/]
-            }))
         .pipe(plugins.rename({
             suffix: '.min'
             }))
@@ -94,7 +90,7 @@ gulp.task('include_html', function() {
 });
 
 gulp.task('assets', gulpsync.sync(['css', 'minify', 'js', 'img', 'fonts']));
-gulp.task('html', gulpsync.sync(['include_html']));
+gulp.task('html', gulpsync.sync(['include_html', 'critical']));
 
 // Tâche "prod" = toutes les tâches ensemble
-gulp.task('prod', gulpsync.sync(['clean', 'assets', 'html']));
+gulp.task('prod', gulpsync.sync(['clean', 'assets' /*, 'html'*/]));
