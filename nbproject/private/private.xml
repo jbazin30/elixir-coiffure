@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/main/class/class_fonction.php</file>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/main/class/class_http.php</file>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/main/pages/pages_contact.php</file>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/main/class/class_tpl.php</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/index.tpl</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/.htaccess</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/header.tpl</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/main/pages/pages_prices.php</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/footer.tpl</file>
             <file>file:/C:/wamp/www/elixir-coiffure/public_html/src/assets/sass/main.scss</file>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/contact.tpl</file>
-            <file>file:/C:/wamp/www/elixir-coiffure/public_html/index.php</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/tarifs-manucure.tpl</file>
+            <file>file:/C:/wamp/www/elixir-coiffure/public_html/templates/tarifs-coiffure.tpl</file>
         </group>
     </open-files>
 </project-private>

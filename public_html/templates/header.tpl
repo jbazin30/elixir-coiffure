@@ -25,21 +25,35 @@
                             <li><a href="index.html">Actualité</a></li>
                             <li>
                                 <a href="prestations-et-tarifs.html">Préstations & tarifs</a>
-                                <ul>
-                                    <li><a href="prestations-et-tarifs.html#coupe">Coupe</a></li>
-                                    <li><a href="prestations-et-tarifs.html#brushing-sechage">Brushing / Séchage</a></li>
-                                    <li><a href="prestations-et-tarifs.html#soin">Soin</a></li>
-                                    <li><a href="prestations-et-tarifs.html#couleur">Couleur</a></li>
-                                    <li><a href="prestations-et-tarifs.html#decoloration">Décoloration</a></li>
-                                    <li><a href="prestations-et-tarifs.html#permanente">Permanente</a></li>
-                                    <li><a href="prestations-et-tarifs.html#lissage-defrisage">Lissage / Défrisage</a></li>
-                                    <li><a href="prestations-et-tarifs.html#extensions">Extensions</a></li>
-                                    <li><a href="prestations-et-tarifs.html#coiffure">Coiffure</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="left-sidebar.html">Mes produits</a></li>
-                            <li><a href="left-sidebar.html">Vos avantages</a></li>
-                            <li><a href="right-sidebar.html">Book</a><!-- Galerie photo avec arbo : coupe-coiffage / extensions / lissage-défrisage / coiffures-chignons --></li>
-                            <li><a href="contact.html">Contactez-moi</a></li>
+								<ul>
+									<li>
+										<a href="tarifs-coiffure.html">Coiffure</a>
+										<ul>
+											<li><a href="tarifs-coiffure.html#coupe">Coupe</a></li>
+											<li><a href="tarifs-coiffure.html#brushing-sechage">Brushing / Séchage</a></li>
+											<li><a href="tarifs-coiffure.html#soin">Soin</a></li>
+											<li><a href="tarifs-coiffure.html#couleur">Couleur</a></li>
+											<li><a href="tarifs-coiffure.html#decoloration">Décoloration</a></li>
+											<li><a href="tarifs-coiffure.html#permanente">Permanente</a></li>
+											<li><a href="tarifs-coiffure.html#lissage-defrisage">Lissage / Défrisage</a></li>
+											<li><a href="tarifs-coiffure.html#extensions">Extensions</a></li>
+											<li><a href="tarifs-coiffure.html#coiffure">Coiffure</a></li>
+										</ul>
+									</li>
+									<li>
+										<a href="tarifs-manucure.html">Manucure</a>
+										<ul>
+											<li><a href="tarifs-manucure.html#beaute-mains-pieds">Beauté des Mains /Pieds</a></li>
+											<li><a href="tarifs-manucure.html#vernis-classique">Vernis classique</a></li>
+											<li><a href="tarifs-manucure.html#vernis-semi-permanent">Vernis semi-permanent</a></li>
+											<li><a href="tarifs-manucure.html#vernis-gel">Vernis gel</a></li>
+											<li><a href="tarifs-manucure.html#chablon-capsules">Chablon / Capsules</a></li>
+								</ul>
+							</li>
+						</ul>
+
+						<li><a href="left-sidebar.html">Mes produits</a></li>
+						<li><a href="right-sidebar.html">Book</a><!-- Galerie photo avec arbo : coupe-coiffage / extensions / lissage-défrisage / coiffures-chignons --></li>
+						<li><a href="contact.html">Contactez-moi</a></li>
                         </ul>
                     </nav>

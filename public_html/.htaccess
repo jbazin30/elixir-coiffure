@@ -10,5 +10,6 @@ RewriteEngine On
 
 RewriteRule ^index\.html$						index.php [L]
 
-RewriteRule ^prestations-et-tarifs\.html$		index.php?p=prices [L]
 RewriteRule ^contact\.html$						index.php?p=contact [L]
+RewriteRule ^tarifs-coiffure\.html$				index.php?p=prices&m=coiffure [L]
+RewriteRule ^tarifs-manucure\.html$				index.php?p=prices&m=manucure [L]

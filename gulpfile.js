@@ -89,7 +89,7 @@ gulp.task('include_html', function() {
         .pipe(gulp.dest(prod));
 });
 
-gulp.task('assets', gulpsync.sync(['css', 'minify', 'js', 'img', 'fonts']));
+gulp.task('assets', gulpsync.sync(['css', 'js', 'img', 'fonts']));
 gulp.task('html', gulpsync.sync(['include_html', 'critical']));
 
 // Tâche "prod" = toutes les tâches ensemble
