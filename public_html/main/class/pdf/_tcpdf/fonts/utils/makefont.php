@@ -194,7 +194,7 @@ function MakeFont($fontfile, $fmfile, $embedded = true, $enc = 'cp1252', $patch 
             $s .= '$size1=' . $size1 . ";\n";
             $s .= '$size2=' . $size2 . ";\n";
         } else {
-            $s.='$originalsize=' . filesize($fontfile) . ";\n";
+            $s .= '$originalsize=' . filesize($fontfile) . ";\n";
         }
     } else {
         //Not embedded font

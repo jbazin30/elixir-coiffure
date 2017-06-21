@@ -1,4 +1,5 @@
 <?php
+
 $_result_tpl .= '<!-- Banner -->
 <section id="banner"></section>
 

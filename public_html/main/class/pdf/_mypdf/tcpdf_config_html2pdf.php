@@ -50,7 +50,7 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
     // Automatic calculation for the following K_PATH_MAIN constant
     $k_path_main = str_replace('\\', '/', dirname(__FILE__));
     $k_path_main = substr($k_path_main, 0, 0 - strlen('_mypdf'));
-    $k_path_main.= '_tcpdf/';
+    $k_path_main .= '_tcpdf/';
 
     /**
      * Installation path (/var/www/tcpdf/).

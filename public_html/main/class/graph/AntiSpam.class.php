@@ -110,8 +110,8 @@ class awAntiSpam extends awImage {
         return (
                 array_key_exists($session, $_SESSION) === TRUE and
                 $case ?
-                        (strtolower($_SESSION[$session]) === strtolower((string) $value)) :
-                        ($_SESSION[$session] === (string) $value)
+                (strtolower($_SESSION[$session]) === strtolower((string) $value)) :
+                ($_SESSION[$session] === (string) $value)
                 );
     }
 

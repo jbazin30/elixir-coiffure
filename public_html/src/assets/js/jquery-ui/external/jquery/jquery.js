@@ -1043,7 +1043,7 @@
                             "needsContext": new RegExp("^" + whitespace + "*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\(" +
                                     whitespace + "*((?:-\\d)?\\d*)" + whitespace + "*\\)|)(?=[^-]|$)", "i")
                         },
-                rnative = /^[^{]+\{\s*\[native \w/,
+                        rnative = /^[^{]+\{\s*\[native \w/,
                         // Easily-parseable/retrievable ID or TAG or CLASS selectors
                         rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
                         rinputs = /^(?:input|select|textarea|button)$/i,
@@ -3087,7 +3087,7 @@
                                                                                     return obj != null ? jQuery.extend(obj, promise) : promise;
                                                                                 }
                                                                             },
-                                                                    deferred = {};
+                                                                            deferred = {};
 
                                                                     // Keep pipe for back-compat
                                                                     promise.pipe = promise.then;
@@ -5821,7 +5821,7 @@
                                                                                 // unless wrapped in a div with non-breaking characters in front of it.
                                                                                 _default: jQuery.support.htmlSerialize ? [0, "", ""] : [1, "X<div>", "</div>"]
                                                                             },
-                                                                    safeFragment = createSafeFragment(document),
+                                                                            safeFragment = createSafeFragment(document),
                                                                             fragmentDiv = safeFragment.appendChild(document.createElement("div"));
 
                                                                     wrapMap.optgroup = wrapMap.option;
@@ -6577,12 +6577,12 @@
                                                                             rnumnonpx = new RegExp("^(" + core_pnum + ")(?!px)[a-z%]+$", "i"),
                                                                             rrelNum = new RegExp("^([+-])=(" + core_pnum + ")", "i"),
                                                                             elemdisplay = {BODY: "block"},
-                                                                    cssShow = {position: "absolute", visibility: "hidden", display: "block"},
-                                                                    cssNormalTransform = {
-                                                                        letterSpacing: 0,
-                                                                        fontWeight: 400
-                                                                    },
-                                                                    cssExpand = ["Top", "Right", "Bottom", "Left"],
+                                                                            cssShow = {position: "absolute", visibility: "hidden", display: "block"},
+                                                                            cssNormalTransform = {
+                                                                                letterSpacing: 0,
+                                                                                fontWeight: 400
+                                                                            },
+                                                                            cssExpand = ["Top", "Right", "Bottom", "Left"],
                                                                             cssPrefixes = ["Webkit", "O", "Moz", "ms"];
 
 // return a css property mapped to a potentially vendor prefixed property
@@ -9135,7 +9135,7 @@
                                                                             function genFx(type, includeWidth) {
                                                                                 var which,
                                                                                         attrs = {height: type},
-                                                                                i = 0;
+                                                                                        i = 0;
 
                                                                                 // if we include width, step value is 1 to do all cssExpand values,
                                                                                 // if we don't include width, step value is 2 to skip over Left and Right
@@ -9277,7 +9277,7 @@
 
                                                                                 var docElem, win,
                                                                                         box = {top: 0, left: 0},
-                                                                                elem = this[ 0 ],
+                                                                                        elem = this[ 0 ],
                                                                                         doc = elem && elem.ownerDocument;
 
                                                                                 if (!doc) {
@@ -9357,7 +9357,7 @@
 
                                                                                     var offsetParent, offset,
                                                                                             parentOffset = {top: 0, left: 0},
-                                                                                    elem = this[ 0 ];
+                                                                                            elem = this[ 0 ];
 
                                                                                     // fixed elements are offset from window (parentOffset = {top:0, left: 0}, because it is it's only offset parent
                                                                                     if (jQuery.css(elem, "position") === "fixed") {

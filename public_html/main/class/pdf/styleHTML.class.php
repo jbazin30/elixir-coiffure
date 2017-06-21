@@ -316,23 +316,23 @@ class styleHTML {
             if ($this->value['right'] !== null) {
                 $x = $this->getLastWidth(true) - $this->value['right'] - $this->value['width'];
                 if ($this->value['margin']['r'])
-                    $x-= $this->value['margin']['r'];
+                    $x -= $this->value['margin']['r'];
             }
             else {
                 $x = $this->value['left'];
                 if ($this->value['margin']['l'])
-                    $x+= $this->value['margin']['l'];
+                    $x += $this->value['margin']['l'];
             }
 
             if ($this->value['bottom'] !== null) {
                 $y = $this->getLastHeight(true) - $this->value['bottom'] - $this->value['height'];
                 if ($this->value['margin']['b'])
-                    $y-= $this->value['margin']['b'];
+                    $y -= $this->value['margin']['b'];
             }
             else {
                 $y = $this->value['top'];
                 if ($this->value['margin']['t'])
-                    $y+= $this->value['margin']['t'];
+                    $y += $this->value['margin']['t'];
             }
 
             if ($this->value['position'] == 'relative') {
@@ -346,9 +346,9 @@ class styleHTML {
             $this->value['x'] = $current_x;
             $this->value['y'] = $current_y;
             if ($this->value['margin']['l'])
-                $this->value['x']+= $this->value['margin']['l'];
+                $this->value['x'] += $this->value['margin']['l'];
             if ($this->value['margin']['t'])
-                $this->value['y']+= $this->value['margin']['t'];
+                $this->value['y'] += $this->value['margin']['t'];
         }
 
         $this->pdf->setXY($this->value['x'], $this->value['y']);
@@ -587,7 +587,7 @@ class styleHTML {
                     if (!in_array($val, array(0, -90, 90, 180, 270, -180, -270)))
                         $val = null;
                     if ($val < 0)
-                        $val+= 360;
+                        $val += 360;
                     $this->value['rotate'] = $val;
                     break;
 
@@ -974,15 +974,15 @@ class styleHTML {
         // correction de la largeur pour correspondre au mod�le de boite quick
         if ($no_width && in_array($balise, array('div', 'fieldset')) && $this->value['position'] != 'absolute') {
             $this->value['width'] = $this->getLastWidth();
-            $this->value['width']-= $this->value['margin']['l'] + $this->value['margin']['r'];
+            $this->value['width'] -= $this->value['margin']['l'] + $this->value['margin']['r'];
         } else {
             if ($correct_width) {
                 if (!in_array($balise, array('table', 'div', 'fieldset', 'hr'))) {
-                    $this->value['width']-= $this->value['padding']['l'] + $this->value['padding']['r'];
-                    $this->value['width']-= $this->value['border']['l']['width'] + $this->value['border']['r']['width'];
+                    $this->value['width'] -= $this->value['padding']['l'] + $this->value['padding']['r'];
+                    $this->value['width'] -= $this->value['border']['l']['width'] + $this->value['border']['r']['width'];
                 }
                 if (in_array($balise, array('th', 'td'))) {
-                    $this->value['width']-= $this->ConvertToMM(isset($param['cellspacing']) ? $param['cellspacing'] : '2px');
+                    $this->value['width'] -= $this->ConvertToMM(isset($param['cellspacing']) ? $param['cellspacing'] : '2px');
                     $return = false;
                 }
                 if ($this->value['width'] < 0)
@@ -1053,8 +1053,8 @@ class styleHTML {
             if ($this->table[$k]['width']) {
                 $w = $this->table[$k]['width'];
                 if ($mode) {
-                    $w+= $this->table[$k]['border']['l']['width'] + $this->table[$k]['padding']['l'] + 0.02;
-                    $w+= $this->table[$k]['border']['r']['width'] + $this->table[$k]['padding']['r'] + 0.02;
+                    $w += $this->table[$k]['border']['l']['width'] + $this->table[$k]['padding']['l'] + 0.02;
+                    $w += $this->table[$k]['border']['r']['width'] + $this->table[$k]['padding']['r'] + 0.02;
                 }
                 return $w;
             }
@@ -1072,8 +1072,8 @@ class styleHTML {
             if ($this->table[$k]['height']) {
                 $h = $this->table[$k]['height'];
                 if ($mode) {
-                    $h+= $this->table[$k]['border']['t']['width'] + $this->table[$k]['padding']['t'] + 0.02;
-                    $h+= $this->table[$k]['border']['b']['width'] + $this->table[$k]['padding']['b'] + 0.02;
+                    $h += $this->table[$k]['border']['t']['width'] + $this->table[$k]['padding']['t'] + 0.02;
+                    $h += $this->table[$k]['border']['b']['width'] + $this->table[$k]['padding']['b'] + 0.02;
                 }
                 return $h;
             }
@@ -1262,7 +1262,7 @@ class styleHTML {
                 if ($repeat) {
                     $res['repeat'] = $repeat;
                 } else {
-                    $pos.= ( $pos ? ' ' : '') . $val;
+                    $pos .= ( $pos ? ' ' : '') . $val;
                 }
             }
         }
@@ -1368,7 +1368,7 @@ class styleHTML {
     public function ConvertToMM($val, $old = 0.) {
         $val = trim($val);
         if (preg_match('/^[0-9\.\-]+$/isU', $val))
-            $val.= 'px';
+            $val .= 'px';
         if (preg_match('/^[0-9\.\-]+px$/isU', $val))
             $val = 25.4 / 96. * str_replace('px', '', $val);
         elseif (preg_match('/^[0-9\.\-]+pt$/isU', $val))
@@ -1563,7 +1563,7 @@ class styleHTML {
                     // @todo
                     // $content = preg_replace('/url\(([^)]*)\)/isU', 'url('.dirname($url).'/$1)', $content);
                 }
-                $style.= $content . "\n";
+                $style .= $content . "\n";
             }
         }
 
@@ -1576,7 +1576,7 @@ class styleHTML {
         foreach ($match[1] as $code) {
             $code = str_replace('<!--', '', $code);
             $code = str_replace('-->', '', $code);
-            $style.= $code . "\n";
+            $style .= $code . "\n";
         }
 
         $this->analyseStyle($style);

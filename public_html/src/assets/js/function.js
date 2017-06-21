@@ -1,8 +1,8 @@
 
 $(function () {
-	/**
-	 * On récupère les objets Dialog pour les ouvertures
-	 */
+    /**
+     * On récupère les objets Dialog pour les ouvertures
+     */
     var js_add_client = $('#js_add_client');
     var js_get_svc = $('#js_get_service');
     var js_add_svc = $('#js_add_service');
@@ -13,7 +13,7 @@ $(function () {
      * Bind jQuery
      */
 
-	// Ajoute une dépense
+    // Ajoute une dépense
     $('.add_value').on('click', function () {
         var data = {
             mod: 'addDepense',
@@ -24,7 +24,7 @@ $(function () {
         O.Ajax.addDepense(data);
     });
 
-	// Ouvre la popin pour l'ajout d'un service
+    // Ouvre la popin pour l'ajout d'un service
     $('.js_btn_add_svc').button().on('click', function () {
         $('#js_add_service .name').html($('.cli_nom input').val());
         $('#js_add_service .pname').html($('.cli_pname input').val());
@@ -33,7 +33,7 @@ $(function () {
         js_add_svc.dialog('open');
     });
 
-	// Ouvre la popin d'édition de service depuis la fiche client
+    // Ouvre la popin d'édition de service depuis la fiche client
     $('.js_get_svc').on('click', function () {
         var data = {
             mod: 'getService',
@@ -44,13 +44,13 @@ $(function () {
         js_get_svc.dialog('open');
     });
 
-	// Ouvre la popin pour la création d'un nouveau client
+    // Ouvre la popin pour la création d'un nouveau client
     $('.js_add_client').on('click', function () {
         js_add_client.dialog('open');
         return false;
     });
 
-	// Enregistre la modification de la ficher client
+    // Enregistre la modification de la ficher client
     $('.js_btn_edit_client').on('click', function () {
         var data = {
             mod: 'editClient',
@@ -70,7 +70,7 @@ $(function () {
         O.Ajax.editClient(data);
     });
 
-	// Supprime un client
+    // Supprime un client
     $('.js_btn_del_client').on('click', function () {
         var data = {
             mod: 'delClient',
@@ -79,7 +79,7 @@ $(function () {
         O.Ajax.delClient(data);
     });
 
-	// Ouvre la popin des prestations liées au service correspondant
+    // Ouvre la popin des prestations liées au service correspondant
     $('.js_btn_get_pres').on('click', function () {
         var data = {
             mod: 'getPres',
@@ -90,7 +90,7 @@ $(function () {
         js_add_pres.dialog('open');
     });
 
-	// Recalcule le prix de la prestation et du montant total si on saisis un pourcentage de remise
+    // Recalcule le prix de la prestation et du montant total si on saisis un pourcentage de remise
     $('.js_pres_remise').on('focusout', function () {
         var taux = $(this).val();
         var index = $(this).parents('tr').children('td').children('.pres_prix_applied');
@@ -105,10 +105,10 @@ $(function () {
         $('.total_applied').html(total_applied.format(2, 3, ' ', '.'));
     });
 
-	// Recalcule le montant total si on fixe manuellement le montant de la prestation
+    // Recalcule le montant total si on fixe manuellement le montant de la prestation
     $('.pres_prix_applied').on('focusout', function () {
-		var price= parseFloat($(this).val());
-		$(this).val( price.format(2, 3, ' ', '.') );
+        var price = parseFloat($(this).val());
+        $(this).val(price.format(2, 3, ' ', '.'));
         var total_applied = 0;
 
         $('tbody tr td input.pres_prix_applied').delay(1000).each(function () {
@@ -118,13 +118,13 @@ $(function () {
         $('.total_applied').html(total_applied.format(2, 3, ' ', '.'));
     });
 
-	// Désactive le champ de saisie manuelle du prix de la prestation
+    // Désactive le champ de saisie manuelle du prix de la prestation
     $('.pres_prix_applied').on('dblclick', function () {
         $(this).removeAttr('readonly');
         $(this).css('border', '1px solid black');
     });
 
-	// Supprime une prestation de la facture
+    // Supprime une prestation de la facture
     $('.js_btn_del_fac_pres').on('click', function () {
         var current = $(this).parents('tr');
         var data = {
@@ -136,7 +136,7 @@ $(function () {
         return false;
     });
 
-	// Valide la facture
+    // Valide la facture
     $('.js_btn_validate_fac').on('click', function () {
         var data = {
             1: parseFloat($('#cb').val()),
@@ -163,7 +163,7 @@ $(function () {
         return false;
     });
 
-	// Recalcule le reste à payer suivant le mode de règlement
+    // Recalcule le reste à payer suivant le mode de règlement
     $('#cb, #cheque, #espece').on('focusout', function () {
         var total_pai = 0;
 
@@ -182,7 +182,7 @@ $(function () {
         $('.total_pai').html(total_pai);
     });
 
-	// Supprime une facture
+    // Supprime une facture
     $('.js_btn_del_fac').on('click', function () {
         var data = {
             mod: 'delFac',
@@ -192,18 +192,18 @@ $(function () {
         return false;
     });
 
-	// Ouvre la popin d'association de facture
+    // Ouvre la popin d'association de facture
     $('.js_add_waiting_fac').on('click', function () {
         var data = {
             mod: 'getWaitingFac',
             fac_num: $('#js_facturation p:first-child').data('fac-num')
         };
         O.Ajax.getWaitingFac(data);
-		js_add_waiting_fac.dialog('open');
+        js_add_waiting_fac.dialog('open');
         return false;
     });
 
-	// Supprime une facture associée
+    // Supprime une facture associée
     $('.js_del_fac_included').on('click', function () {
         var data = {
             mod: 'delIncludedfac',
@@ -213,12 +213,12 @@ $(function () {
         return false;
     });
 
-	// Retourne à la page de recherche de client
+    // Retourne à la page de recherche de client
     $('.js_back_search').on('click', function () {
         window.location.href = '?p=search';
     });
 
-	// Retourne à la page d'accueil du site
+    // Retourne à la page d'accueil du site
     $('header').on('click', function () {
         window.location.href = 'index.php';
     });
@@ -243,7 +243,7 @@ $(function () {
             e.clear = !e.filter;
         }
     });
-	///
+    ///
     $('.clear-filter').click(function (e) {
         e.preventDefault();
         $('.filter-status').val('');

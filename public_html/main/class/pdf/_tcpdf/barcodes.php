@@ -580,11 +580,11 @@ class TCPDFBarcode {
     protected function checksum_s25($code) {
         $len = strlen($code);
         $sum = 0;
-        for ($i = 0; $i < $len; $i+=2) {
+        for ($i = 0; $i < $len; $i += 2) {
             $sum += $code{$i};
         }
         $sum *= 3;
-        for ($i = 1; $i < $len; $i+=2) {
+        for ($i = 1; $i < $len; $i += 2) {
             $sum += ( $code{$i});
         }
         $r = $sum % 10;
@@ -1005,14 +1005,14 @@ class TCPDFBarcode {
         $code_len = strlen($code);
         // calculate check digit
         $sum_a = 0;
-        for ($i = 1; $i < $data_len; $i+=2) {
+        for ($i = 1; $i < $data_len; $i += 2) {
             $sum_a += $code{$i};
         }
         if ($len > 12) {
             $sum_a *= 3;
         }
         $sum_b = 0;
-        for ($i = 0; $i < $data_len; $i+=2) {
+        for ($i = 0; $i < $data_len; $i += 2) {
             $sum_b += ( $code{$i});
         }
         if ($len < 13) {

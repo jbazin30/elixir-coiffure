@@ -44,13 +44,13 @@ if (!defined('__CLASS_MYPDF__')) {
             if ($this->footer_param['form'])
                 $txt = (HTML2PDF::textGET('pdf05'));
             if ($this->footer_param['date'] && $this->footer_param['heure'])
-                $txt.= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf03'));
+                $txt .= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf03'));
             if ($this->footer_param['date'] && !$this->footer_param['heure'])
-                $txt.= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf01'));
+                $txt .= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf01'));
             if (!$this->footer_param['date'] && $this->footer_param['heure'])
-                $txt.= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf02'));
+                $txt .= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf02'));
             if ($this->footer_param['page'])
-                $txt.= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf04'));
+                $txt .= ( $txt ? ' - ' : '') . (HTML2PDF::textGET('pdf04'));
 
             if (strlen($txt) > 0) {
                 $txt = str_replace('[[date_d]]', date('d'), $txt);
@@ -162,9 +162,9 @@ if (!defined('__CLASS_MYPDF__')) {
                     $MyArc = 4 / 3 * (sqrt(2) - 1);
 
                     if ($coin_TL)
-                        $path.= sprintf('%.2F %.2F m ', $x1 + $coin_TL[0], $y1);
+                        $path .= sprintf('%.2F %.2F m ', $x1 + $coin_TL[0], $y1);
                     else
-                        $path.= sprintf('%.2F %.2F m ', $x1, $y1);
+                        $path .= sprintf('%.2F %.2F m ', $x1, $y1);
 
                     if ($coin_TR) {
                         $xt1 = ($x2 - $coin_TR[0]) + $coin_TR[0] * $MyArc;
@@ -172,10 +172,10 @@ if (!defined('__CLASS_MYPDF__')) {
                         $xt2 = ($x2 - $coin_TR[0]) + $coin_TR[0];
                         $yt2 = ($y2 + $coin_TR[1]) - $coin_TR[1] * $MyArc;
 
-                        $path.= sprintf('%.2F %.2F l ', $x2 - $coin_TR[0], $y2);
-                        $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x2, $y2 + $coin_TR[1]);
+                        $path .= sprintf('%.2F %.2F l ', $x2 - $coin_TR[0], $y2);
+                        $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x2, $y2 + $coin_TR[1]);
                     } else
-                        $path.= sprintf('%.2F %.2F l ', $x2, $y2);
+                        $path .= sprintf('%.2F %.2F l ', $x2, $y2);
 
                     if ($coin_BR) {
                         $xt1 = ($x3 - $coin_BR[0]) + $coin_BR[0];
@@ -183,10 +183,10 @@ if (!defined('__CLASS_MYPDF__')) {
                         $xt2 = ($x3 - $coin_BR[0]) + $coin_BR[0] * $MyArc;
                         $yt2 = ($y3 - $coin_BR[1]) + $coin_BR[1];
 
-                        $path.= sprintf('%.2F %.2F l ', $x3, $y3 - $coin_BR[1]);
-                        $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x3 - $coin_BR[0], $y3);
+                        $path .= sprintf('%.2F %.2F l ', $x3, $y3 - $coin_BR[1]);
+                        $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x3 - $coin_BR[0], $y3);
                     } else
-                        $path.= sprintf('%.2F %.2F l ', $x3, $y3);
+                        $path .= sprintf('%.2F %.2F l ', $x3, $y3);
 
                     if ($coin_BL) {
                         $xt1 = ($x4 + $coin_BL[0]) - $coin_BL[0] * $MyArc;
@@ -194,10 +194,10 @@ if (!defined('__CLASS_MYPDF__')) {
                         $xt2 = ($x4 + $coin_BL[0]) - $coin_BL[0];
                         $yt2 = ($y4 - $coin_BL[1]) + $coin_BL[1] * $MyArc;
 
-                        $path.= sprintf('%.2F %.2F l ', $x4 + $coin_BL[0], $y4);
-                        $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x4, $y4 - $coin_BL[1]);
+                        $path .= sprintf('%.2F %.2F l ', $x4 + $coin_BL[0], $y4);
+                        $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x4, $y4 - $coin_BL[1]);
                     } else
-                        $path.= sprintf('%.2F %.2F l ', $x4, $y4);
+                        $path .= sprintf('%.2F %.2F l ', $x4, $y4);
 
                     if ($coin_TL) {
                         $xt1 = ($x1 + $coin_TL[0]) - $coin_TL[0];
@@ -205,17 +205,17 @@ if (!defined('__CLASS_MYPDF__')) {
                         $xt2 = ($x1 + $coin_TL[0]) - $coin_TL[0] * $MyArc;
                         $yt2 = ($y1 + $coin_TL[1]) - $coin_TL[1];
 
-                        $path.= sprintf('%.2F %.2F l ', $x1, $y1 + $coin_TL[1]);
-                        $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x1 + $coin_TL[0], $y1);
+                        $path .= sprintf('%.2F %.2F l ', $x1, $y1 + $coin_TL[1]);
+                        $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $x1 + $coin_TL[0], $y1);
                     }
                 } else {
-                    $path.= sprintf('%.2F %.2F m ', $x1, $y1);
-                    $path.= sprintf('%.2F %.2F l ', $x2, $y2);
-                    $path.= sprintf('%.2F %.2F l ', $x3, $y3);
-                    $path.= sprintf('%.2F %.2F l ', $x4, $y4);
+                    $path .= sprintf('%.2F %.2F m ', $x1, $y1);
+                    $path .= sprintf('%.2F %.2F l ', $x2, $y2);
+                    $path .= sprintf('%.2F %.2F l ', $x3, $y3);
+                    $path .= sprintf('%.2F %.2F l ', $x4, $y4);
                 }
 
-                $path.= ' h W n';
+                $path .= ' h W n';
             }
             $this->_out('q ' . $path . ' ');
         }
@@ -252,8 +252,8 @@ if (!defined('__CLASS_MYPDF__')) {
                 $yt2 = $cen_y + ($ext1_y - $cen_y) * $MyArc;
             }
 
-            $path.= sprintf('%.2F %.2F m ', $ext1_x, $ext1_y);
-            $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $ext2_x, $ext2_y);
+            $path .= sprintf('%.2F %.2F m ', $ext1_x, $ext1_y);
+            $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $ext2_x, $ext2_y);
 
             if ($int1_x - $cen_x != 0) {
                 $xt1 = $cen_x + ($int1_x - $cen_x) * $MyArc;
@@ -267,8 +267,8 @@ if (!defined('__CLASS_MYPDF__')) {
                 $yt2 = $cen_y + ($int1_y - $cen_y);
             }
 
-            $path.= sprintf('%.2F %.2F l ', $int2_x, $int2_y);
-            $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $int1_x, $int1_y);
+            $path .= sprintf('%.2F %.2F l ', $int2_x, $int2_y);
+            $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $int1_x, $int1_y);
 
             $this->_out($path . 'f');
         }
@@ -299,10 +299,10 @@ if (!defined('__CLASS_MYPDF__')) {
                 $yt2 = $cen_y + ($ext1_y - $cen_y) * $MyArc;
             }
 
-            $path.= sprintf('%.2F %.2F m ', $ext1_x, $ext1_y);
-            $path.= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $ext2_x, $ext2_y);
-            $path.= sprintf('%.2F %.2F l ', $int_x, $int_y);
-            $path.= sprintf('%.2F %.2F l ', $ext1_x, $ext1_y);
+            $path .= sprintf('%.2F %.2F m ', $ext1_x, $ext1_y);
+            $path .= sprintf('%.2F %.2F %.2F %.2F %.2F %.2F c ', $xt1, $yt1, $xt2, $yt2, $ext2_x, $ext2_y);
+            $path .= sprintf('%.2F %.2F l ', $int_x, $int_y);
+            $path .= sprintf('%.2F %.2F l ', $ext1_x, $ext1_y);
 
             $this->_out($path . 'f');
         }
@@ -334,7 +334,7 @@ if (!defined('__CLASS_MYPDF__')) {
                 $y = $this->y;
 
             $y = ($this->h - $y) * $this->k;
-            $x*=$this->k;
+            $x *= $this->k;
 
             // matrice de transformation
             $tm[0] = cos(deg2rad($angle));
@@ -404,12 +404,12 @@ if (!defined('__CLASS_MYPDF__')) {
 
             if ($styles['fill']) {
                 $this->setFillColorArray($styles['fill']);
-                $style.= 'F';
+                $style .= 'F';
             }
             if ($styles['stroke'] && $styles['stroke-width']) {
                 $this->SetDrawColorArray($styles['stroke']);
                 $this->SetLineWidth($styles['stroke-width']);
-                $style.= 'D';
+                $style .= 'D';
             }
             if ($styles['fill-opacity']) {
                 $this->SetAlpha($styles['fill-opacity']);
@@ -643,7 +643,7 @@ if (!defined('__CLASS_MYPDF__')) {
             $nSeg = 8;
 
             if (!$sens)
-                $a_debut+= M_PI * 2.;
+                $a_debut += M_PI * 2.;
 
             $totalAngle = $a_fin - $a_debut;
             $dt = $totalAngle / $nSeg;
@@ -713,7 +713,7 @@ if (!defined('__CLASS_MYPDF__')) {
             $v['s1']['a1'] = atan2($v['y1'] - $v['s1']['y'], $v['x1'] - $v['s1']['x']);
             $v['s1']['a2'] = atan2($v['y2'] - $v['s1']['y'], $v['x2'] - $v['s1']['x']);
             if ($v['s1']['a1'] > $v['s1']['a2'])
-                $v['s1']['a1']-=2 * M_PI;
+                $v['s1']['a1'] -= 2 * M_PI;
 
             $v['s2']['t'] = -$v['s1']['t'];
             $v['s2']['Xr'] = ($v['Xr1'] + $v['Xr2']) / 2. + $v['s2']['t'] * ($v['Yr2'] - $v['Yr1']) / 2.;
@@ -725,7 +725,7 @@ if (!defined('__CLASS_MYPDF__')) {
             $v['s2']['a1'] = atan2($v['y1'] - $v['s2']['y'], $v['x1'] - $v['s2']['x']);
             $v['s2']['a2'] = atan2($v['y2'] - $v['s2']['y'], $v['x2'] - $v['s2']['x']);
             if ($v['s2']['a1'] > $v['s2']['a2'])
-                $v['s2']['a1']-=2 * M_PI;
+                $v['s2']['a1'] -= 2 * M_PI;
 
             if (!$l) {
                 if ($s) {
@@ -816,7 +816,7 @@ if (!defined('__CLASS_MYPDF__')) {
             $this->write1DBarcode($code, $type, $x, $y, $w, $h, '', $style, 'N');
 
             if ($fontsize_label) {
-                $h+= ( $fontsize_label);
+                $h += ( $fontsize_label);
             }
 
             $code_w = $w;

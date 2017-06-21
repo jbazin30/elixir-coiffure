@@ -215,7 +215,7 @@ class parsingHTML {
             }
             else {
                 // ajout du texte � la fin de celui qui est d�j� d�tect�
-                $str.= $parse[2][0];
+                $str .= $parse[2][0];
             }
             // Update offset to the end of the match
             $offset = $parse[0][1] + strlen($parse[0][0]);
@@ -415,7 +415,7 @@ class parsingHTML {
                     if ($level == 0) {
                         $not = true;
                     }  // si on est � la premiere balise : on l'ignore
-                    $level+= ( $row['close'] ? -1 : 1); // modification du niveau en cours en fonction de l'ouvertre / fermeture
+                    $level += ( $row['close'] ? -1 : 1); // modification du niveau en cours en fonction de l'ouvertre / fermeture
                     if ($level == 0) {
                         $not = true;
                         $end = true;

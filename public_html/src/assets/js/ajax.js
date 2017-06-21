@@ -202,13 +202,13 @@ O.Ajax = {
             method: "POST",
             url: "ajax.php",
             data: data,
-			dataType: 'json',
+            dataType: 'json',
             cache: false
         }).done(function (response) {
             $.each(response, function (key, val) {
                 $('#factures').append('<tr data-fac-num="' + val['fac_num'] + '"><td>' + val['fac_num'] + '</td><td>' + val['cli_nom'] + '</td><td>' + val['cli_prenom'] + '</td></tr>');
             });
-			$('#factures tr').on('click', function () {
+            $('#factures tr').on('click', function () {
                 $(this).toggleClass('selected');
                 var index = lst_fac.indexOf($(this).data('fac-num'));
                 if (index > -1) {
@@ -226,7 +226,7 @@ O.Ajax = {
             data: data,
             cache: false
         }).done(function () {
-			var sessionx = {};
+            var sessionx = {};
             setTimeout(function () {
                 location.reload();
             }, 500);
@@ -244,12 +244,12 @@ O.Ajax = {
             }, 500);
         });
     },
-	sessionSetter: function (data) {
-		$.ajax({
+    sessionSetter: function (data) {
+        $.ajax({
             method: "POST",
             url: "ajax.php",
             data: data,
             cache: false
         });
-	}
+    }
 };

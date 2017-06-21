@@ -4,4 +4,5 @@
  * Fichier de trad FR
  */
 return ( array(
-		));
+
+));

@@ -362,7 +362,7 @@ function ajax_add_pai($fac_num, $montants_pai) {
  */
 function ajax_get_waiting_fac($fac_num) {
     $sql = 'SELECT `fac_num`, `cli_nom`, `cli_prenom` FROM `client` c INNER JOIN `facture` f ON c.`cli_num` = f.`fac_cli_num` WHERE f.`fac_provisoire` = 1 AND f.fac_num != :fac_num';
-	$paramx = [
+    $paramx = [
         ':fac_num' => $fac_num
     ];
     Globale::$requete = Globale::$db->requete($sql, $paramx);
@@ -380,7 +380,7 @@ function ajax_get_waiting_fac($fac_num) {
  * @return string
  */
 function ajax_add_waiting_fac($fac_num, $lst_fac) {
-	$paramx = [
+    $paramx = [
         ':fac_num' => $fac_num
     ];
     foreach ($lst_fac as $d) {
@@ -396,12 +396,12 @@ function ajax_add_waiting_fac($fac_num, $lst_fac) {
  * Supprime l'association d'une facture
  * @param type $fac_num */
 function ajax_del_included_fac($fac_num) {
-	$paramx = [
+    $paramx = [
         ':fac_num' => $fac_num
     ];
-	Globale::$requete = Globale::$db->requete('UPDATE `facture` SET `fac_included` = 0, `fac_provisoire` = 1 WHERE `fac_num` = :fac_num', $paramx);
+    Globale::$requete = Globale::$db->requete('UPDATE `facture` SET `fac_included` = 0, `fac_provisoire` = 1 WHERE `fac_num` = :fac_num', $paramx);
 
-	if (Globale::$requete) {
+    if (Globale::$requete) {
         return 'successfull';
     }
 }

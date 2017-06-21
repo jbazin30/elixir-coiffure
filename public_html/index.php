@@ -91,9 +91,6 @@ class Frame {
         class_import('pages_' . $page);
         new Frame_child();
     }
-	private function _parse_globals() {
-		$parsed_types= [INPUT_GET, INPUT_POST, INPUT_PUT, INPUT_COOKIE, INPUT_ENV];
-	}
 
 }
 

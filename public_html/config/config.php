@@ -5,14 +5,14 @@
  */
 define('SQL_SERVER', 'localhost'); // adresse/nom du serveur de base de données
 define('SQL_LOGIN', 'root'); // login du serveur
-define('SQL_PASS', ''); // mot de passe du serveur
+define('SQL_PASS', 'SigSauer13'); // mot de passe du serveur
 define('SQL_DB', 'elixir'); // base de données
 define('SQL_PORT', null); // port du serveur de base de données
 define('SQL_TYPE', 'mysql'); // défini le type de serveur utilisé
 
 define('DIR_LANG', 'lang/'); // défini le dossier contenant les fichiers langue
 define('PAGE', 'pages/'); // indique le dossier contenant les pages du site
-define('EMAIL_SITE', ''); // Adresse email de réponse utilisé pour les Reply-To des emails envoyés
+define('EMAIL_SITE', 'crashouille@gmail.com'); // Adresse email de réponse utilisé pour les Reply-To des emails envoyés
 define('DEVISE', '€');
 
 define('CURRENT_TIME', time()); // timestamp

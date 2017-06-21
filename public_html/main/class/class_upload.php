@@ -24,7 +24,7 @@ class Upload {
      * 	@access public
      * 	@var array
      */
-    public $extension = ['zip', 'rar', 'gz', 'tar', 'tgz', 'jpg', 'png', 'gif', 'txt', 'html', 'htm'];
+    public $extension = ['zip', 'rar', 'gz', 'tar', 'tgz', 'jpg', 'png', 'gif', 'pdf'];
 
     /**
      * Contient la liste des fichiers de la variable $_FILES
@@ -120,7 +120,7 @@ class Upload {
 
                 // Si il n'y a pas d'erreur, on déplace le fichier temporaire vers le dossier de destination
                 if ($this->file['error'] == 0) {
-                    if (!@move_uploaded_file($this->file['tmp_name'], $this->upload_dir . '/' . $this->file['name'])) {
+                    if (!move_uploaded_file($this->file['tmp_name'], $this->upload_dir . '/' . $this->file['name'])) {
                         trigger_error('Une erreur est survenue lors du chargement du fichier', C_ERROR);
                     } else {
                         return true;

@@ -125,7 +125,7 @@ function MakeFontDescriptor($fm, $symbolic) {
     $fd = "array('Ascent'=>" . $asc;
     //Descent
     $desc = (isset($fm['Descender']) ? $fm['Descender'] : -200);
-    $fd.=",'Descent'=>" . $desc;
+    $fd .= ",'Descent'=>" . $desc;
     //CapHeight
     if (isset($fm['CapHeight']))
         $ch = $fm['CapHeight'];
@@ -133,27 +133,27 @@ function MakeFontDescriptor($fm, $symbolic) {
         $ch = $fm['CapXHeight'];
     else
         $ch = $asc;
-    $fd.=",'CapHeight'=>" . $ch;
+    $fd .= ",'CapHeight'=>" . $ch;
     //Flags
     $flags = 0;
     if (isset($fm['IsFixedPitch']) && $fm['IsFixedPitch'])
-        $flags+=1 << 0;
+        $flags += 1 << 0;
     if ($symbolic)
-        $flags+=1 << 2;
+        $flags += 1 << 2;
     if (!$symbolic)
-        $flags+=1 << 5;
+        $flags += 1 << 5;
     if (isset($fm['ItalicAngle']) && $fm['ItalicAngle'] != 0)
-        $flags+=1 << 6;
-    $fd.=",'Flags'=>" . $flags;
+        $flags += 1 << 6;
+    $fd .= ",'Flags'=>" . $flags;
     //FontBBox
     if (isset($fm['FontBBox']))
         $fbb = $fm['FontBBox'];
     else
         $fbb = array(0, $desc - 100, 1000, $asc + 100);
-    $fd.=",'FontBBox'=>'[" . $fbb[0] . ' ' . $fbb[1] . ' ' . $fbb[2] . ' ' . $fbb[3] . "]'";
+    $fd .= ",'FontBBox'=>'[" . $fbb[0] . ' ' . $fbb[1] . ' ' . $fbb[2] . ' ' . $fbb[3] . "]'";
     //ItalicAngle
     $ia = (isset($fm['ItalicAngle']) ? $fm['ItalicAngle'] : 0);
-    $fd.=",'ItalicAngle'=>" . $ia;
+    $fd .= ",'ItalicAngle'=>" . $ia;
     //StemV
     if (isset($fm['StdVW']))
         $stemv = $fm['StdVW'];
@@ -161,11 +161,11 @@ function MakeFontDescriptor($fm, $symbolic) {
         $stemv = 120;
     else
         $stemv = 70;
-    $fd.=",'StemV'=>" . $stemv;
+    $fd .= ",'StemV'=>" . $stemv;
     //MissingWidth
     if (isset($fm['MissingWidth']))
-        $fd.=",'MissingWidth'=>" . $fm['MissingWidth'];
-    $fd.=')';
+        $fd .= ",'MissingWidth'=>" . $fm['MissingWidth'];
+    $fd .= ')';
     return $fd;
 }
 
@@ -175,20 +175,20 @@ function MakeWidthArray($fm) {
     $cw = $fm['Widths'];
     for ($i = 0; $i <= 255; $i++) {
         if (chr($i) == "'")
-            $s.="'\\''";
+            $s .= "'\\''";
         elseif (chr($i) == "\\")
-            $s.="'\\\\'";
+            $s .= "'\\\\'";
         elseif ($i >= 32 && $i <= 126)
-            $s.="'" . chr($i) . "'";
+            $s .= "'" . chr($i) . "'";
         else
-            $s.="chr($i)";
-        $s.='=>' . $fm['Widths'][$i];
+            $s .= "chr($i)";
+        $s .= '=>' . $fm['Widths'][$i];
         if ($i < 255)
-            $s.=',';
+            $s .= ',';
         if (($i + 1) % 22 == 0)
-            $s.="\n\t";
+            $s .= "\n\t";
     }
-    $s.=')';
+    $s .= ')';
     return $s;
 }
 
@@ -200,9 +200,9 @@ function MakeFontEncoding($map) {
     for ($i = 32; $i <= 255; $i++) {
         if ($map[$i] != $ref[$i]) {
             if ($i != $last + 1)
-                $s.=$i . ' ';
+                $s .= $i . ' ';
             $last = $i;
-            $s.='/' . $map[$i] . ' ';
+            $s .= '/' . $map[$i] . ' ';
         }
     }
     return rtrim($s);
@@ -305,19 +305,19 @@ function MakeFont($fontfile, $afmfile, $enc = 'cp1252', $patch = [], $type = 'Tr
     }
     //Start generation
     $s = '<?php' . "\n";
-    $s.='$type=\'' . $type . "';\n";
-    $s.='$name=\'' . $fm['FontName'] . "';\n";
-    $s.='$desc=' . $fd . ";\n";
+    $s .= '$type=\'' . $type . "';\n";
+    $s .= '$name=\'' . $fm['FontName'] . "';\n";
+    $s .= '$desc=' . $fd . ";\n";
     if (!isset($fm['UnderlinePosition']))
         $fm['UnderlinePosition'] = -100;
     if (!isset($fm['UnderlineThickness']))
         $fm['UnderlineThickness'] = 50;
-    $s.='$up=' . $fm['UnderlinePosition'] . ";\n";
-    $s.='$ut=' . $fm['UnderlineThickness'] . ";\n";
+    $s .= '$up=' . $fm['UnderlinePosition'] . ";\n";
+    $s .= '$ut=' . $fm['UnderlineThickness'] . ";\n";
     $w = MakeWidthArray($fm);
-    $s.='$cw=' . $w . ";\n";
-    $s.='$enc=\'' . $enc . "';\n";
-    $s.='$diff=\'' . $diff . "';\n";
+    $s .= '$cw=' . $w . ";\n";
+    $s .= '$enc=\'' . $enc . "';\n";
+    $s .= '$diff=\'' . $diff . "';\n";
     $basename = substr(basename($afmfile), 0, -4);
     if ($fontfile) {
         //Embedded font
@@ -354,23 +354,23 @@ function MakeFont($fontfile, $afmfile, $enc = 'cp1252', $patch = [], $type = 'Tr
         if (function_exists('gzcompress')) {
             $cmp = $basename . '.z';
             SaveToFile($cmp, gzcompress($file), 'b');
-            $s.='$file=\'' . $cmp . "';\n";
+            $s .= '$file=\'' . $cmp . "';\n";
             echo 'Font file compressed (' . $cmp . ')<br>';
         } else {
-            $s.='$file=\'' . basename($fontfile) . "';\n";
+            $s .= '$file=\'' . basename($fontfile) . "';\n";
             echo '<b>Notice:</b> font file could not be compressed (zlib extension not available)<br>';
         }
         if ($type == 'Type1') {
-            $s.='$size1=' . $size1 . ";\n";
-            $s.='$size2=' . $size2 . ";\n";
+            $s .= '$size1=' . $size1 . ";\n";
+            $s .= '$size2=' . $size2 . ";\n";
         } else
-            $s.='$originalsize=' . filesize($fontfile) . ";\n";
+            $s .= '$originalsize=' . filesize($fontfile) . ";\n";
     }
     else {
         //Not embedded font
-        $s.='$file=' . "'';\n";
+        $s .= '$file=' . "'';\n";
     }
-    $s.="?>\n";
+    $s .= "?>\n";
     SaveToFile($basename . '.php', $s, 't');
     echo 'Font definition file generated (' . $basename . '.php' . ')<br>';
 }

@@ -1,4 +1,5 @@
 <?php
+
 $_result_tpl .= '
             <!-- Footer -->
             <div id="footer-wrapper">
